@@ -14,6 +14,5 @@
 Password <br>
  <input type="password" placeholder="password" name="password"> <br>
 
-
  <input type="submit" value="submit" name="btn_submit">
 </form>
