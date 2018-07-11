@@ -1,0 +1,10 @@
+OK giờ thì đăng kí đăng nhập ổn.....
+
+vừa tạo mới folder news 
+-> trong đó tạo 1 file index.php để hiện thì danh sách TẤT CẢ bài viết trong bảng news nhá
+
+<?php include("../../include/connecttion.php");?> ví dụ vậy
+
+OK có quyền hỏi bất cứ lúc nào
+ko thì t4 t pull về xem
+ok
