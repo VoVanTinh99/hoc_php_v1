@@ -4,8 +4,8 @@
 	<title>Học PHP</title>
 </head>
 <body>
+<?php include("../include/connecttion.php");?>
 <?php 
- include('connection.php');
     if(isset($_POST['btn_submit']))
     {
     	$id=$_POST['id'];
@@ -15,7 +15,7 @@
         $admin_group_id=$_POST['admin_group_id'];
         $sql="INSERT INTO admin VALUES('','$username','$password','','')";
         mysql_query($sql);
-        echo '<meta http-equiv="refresh" content="0;url=dangnhap.php"/>';
+        echo '<meta http-equiv="refresh" content="0;url=login.php"/>';
     }
 ?>
 <form action="" method="POST" name="frmRegister" enctype="multipart/form-data" >

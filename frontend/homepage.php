@@ -19,6 +19,6 @@
     </head>
     <body>
     <p>Chúc mừng bạn đã đăng nhập thành công</p>
-    <img src="dangnhapthanhcong.jpg" class="hinh">
+    <img src="login_complete.jpg" class="hinh">
     </body>
 </html>
