@@ -2,54 +2,49 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<?php include("../../include/connecttion.php");?>
-<?php
+<title>Document</title>
+	<link type="text/css" href="../../include/custom.css">
+<style type="text/css">
+	tr td p img {
+		height:100px !important;
+	}
+	.thumb{
+		height:  100px !important;
+	}
+	tr td div span img {
+		height: 100px !important;
+	}
+</style>	
+</head>
+<body>
+<?php include("../../include/connecttion.php");
 if (isset($_GET['$username'])) {
 	$username = $_GET['username'];
 	$sql="DELETE FROM news where username ='$username'";
 	mysql_query($sql);
 }
 ?>
-	<title>Document</title>
-	
-</head>
-<body>
 <?php 
-	include("../../include/connecttion.php");
 	$result=mysql_query("select * from news");
 ?>
-<table width="694" border="1">
-<tr>
-	<td width="121">id</td>
-	<td width="152">title</td>
-	<td width="51">intro</td>
-	<td width="135">content</td>
-	<td width="100">meta_desc</td>
-	<td width="83">meta_key</td>
-	<td width="83">image_link</td>
-	<td width="12">created</td>
-	<td width="12">feature</td>
-	<td width="12">count_view</td>
-</tr>
+<h2>Danh Sách Bài Viết</h2>
 <?php 
   	while($row=mysql_fetch_array($result))
 	{
   ?>
-<tr>
-    <td><?php echo $row['id']; ?></td>    
-    <td><?php echo $row['title']; ?></td>
-    <td><?php echo $row['intro']; ?></td>
-    <td><?php echo $row['content']; ?>/></td>
-    <td><?php echo $row['meta_desc']; ?></td>
-    <td><?php echo $row['meta_key']; ?></td>
-    <td><?php echo $row['image_link']; ?></td>
-    <td><?php echo $row['created']; ?></td>
-    <td><?php echo $row['feature']; ?></td>
-    <td><?php echo $row['count_view']; ?></td>
-  </tr>
+  <div class="container">
+  	<div class="title">
+  		<h3><i><?php echo $row['id']; ?></i> -  <?php echo $row['title']; ?></h3>
+  	</div>	
+  	<span class="intro"><?php echo $row['intro']; ?></span>
+  	<div class="content"><?php echo $row['content']; ?></div>
+  	<br/><b>Ngày tạo ( <?php echo date("m/d/Y", strtotime($row['created']))?> ) </b> - Lượt xem (<b><?php echo $row['count_view']; ?></b>) -- xóa
+  	<br/>
+  </div>
+  <hr/>
   <?php
 	}
   ?>
-</table>
 </body>
+
 </html>
