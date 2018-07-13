@@ -23,7 +23,7 @@ if (isset($_GET['$username'])) {
 	<td width="121">id</td>
 	<td width="152">title</td>
 	<td width="51">intro</td>
-	<td width="97">content</td>
+	<td width="135">content</td>
 	<td width="100">meta_desc</td>
 	<td width="83">meta_key</td>
 	<td width="83">image_link</td>
@@ -39,7 +39,7 @@ if (isset($_GET['$username'])) {
     <td><?php echo $row['id']; ?></td>    
     <td><?php echo $row['title']; ?></td>
     <td><?php echo $row['intro']; ?></td>
-    <td><?php echo $row['content']; ?></td>
+    <td><?php echo $row['content']; ?>/></td>
     <td><?php echo $row['meta_desc']; ?></td>
     <td><?php echo $row['meta_key']; ?></td>
     <td><?php echo $row['image_link']; ?></td>
