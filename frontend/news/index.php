@@ -14,14 +14,18 @@
 	tr td div span img {
 		height: 100px !important;
 	}
+	button{
+		background-color: yellow;
+	}
 </style>	
 </head>
 <body>
 <?php include("../../include/connecttion.php");
 if (isset($_GET['$username'])) {
 	$username = $_GET['username'];
-	$sql="DELETE FROM news where username ='$username'";
+	$sql="DELETE FROM news where username ='$id'";
 	mysql_query($sql);
+
 }
 ?>
 <?php 
@@ -38,7 +42,7 @@ if (isset($_GET['$username'])) {
   	</div>	
   	<span class="intro"><?php echo $row['intro']; ?></span>
   	<div class="content"><?php echo $row['content']; ?></div>
-  	<br/><b>Ngày tạo ( <?php echo date("m/d/Y", strtotime($row['created']))?> ) </b> - Lượt xem (<b><?php echo $row['count_view']; ?></b>) -- xóa
+  	<br/><b>Ngày tạo ( <?php echo date("m/d/Y", strtotime($row['created']))?> ) </b> - Lượt xem (<b><?php echo $row['count_view']; ?></b>) -- xóa <button href="index.php?username= <?php echo $row['id']; ?>" onclick="return sure();">Delete</button>
   	<br/>
   </div>
   <hr/>
@@ -46,5 +50,16 @@ if (isset($_GET['$username'])) {
 	}
   ?>
 </body>
-
+<script>
+	function sure()
+	{
+		if( confirm("Are you sure?"))
+		{
+		return true;
+		}
+		else{
+			return false;
+		}
+			}// dành cho xóa
+</script>
 </html>
