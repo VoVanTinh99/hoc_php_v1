@@ -14,14 +14,38 @@
 	tr td div span img {
 		height: 100px !important;
 	}
+	button{
+		background-color: yellow;
+	}
+	a{
+		border: 1px solid #EBF8A4;
+		background-color: #4F5D95;
+		color: #0397E6;
+		width: 10px;
+		text-decoration: none;
+	}
 </style>	
+
+<script>
+	function sure()
+	{
+		if( confirm("Are you sure?"))
+		{
+		return true;
+		}
+		else{
+			return false;
+		}
+			}// dành cho xóa
+</script>
 </head>
 <body>
 <?php include("../../include/connecttion.php");
-if (isset($_GET['$username'])) {
-	$username = $_GET['username'];
-	$sql="DELETE FROM news where username ='$username'";
+if (isset($_GET['id'])) {
+	$id = $_GET['id'];
+	$sql="DELETE FROM news where id ='$id'";
 	mysql_query($sql);
+
 }
 ?>
 <?php 
@@ -38,7 +62,7 @@ if (isset($_GET['$username'])) {
   	</div>	
   	<span class="intro"><?php echo $row['intro']; ?></span>
   	<div class="content"><?php echo $row['content']; ?></div>
-  	<br/><b>Ngày tạo ( <?php echo date("m/d/Y", strtotime($row['created']))?> ) </b> - Lượt xem (<b><?php echo $row['count_view']; ?></b>) -- xóa
+  	<br/><b>Ngày tạo ( <?php echo date("m/d/Y", strtotime($row['created']))?> ) </b> - Lượt xem (<b><?php echo $row['count_view']; ?></b>) -- <a href="index.php?id=<?php echo $row['id'];?>" onclick="return sure();">xóa</a>
   	<br/>
   </div>
   <hr/>
@@ -46,5 +70,4 @@ if (isset($_GET['$username'])) {
 	}
   ?>
 </body>
-
 </html>
