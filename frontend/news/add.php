@@ -112,6 +112,8 @@ if(isset($_POST['btnAdd']))
 	$created=$_POST['created'];
 	$feature=$_POST['feature'];
 	$count_view=$_POST['count_view'];
+	$taptin =$_FILES['image_link'];
+	$image_link=$taptin['name'];
 	//Upload hinh
 	$taptin=$_FILES['image_link'];
 if($taptin['type']=="image/jpg" || $taptin['type']=="image/jpeg" || $taptin['type']=="image/png" ||$taptin['type']=="image/gif")
@@ -131,7 +133,7 @@ if($taptin['type']=="image/jpg" || $taptin['type']=="image/jpeg" || $taptin['typ
 					else
 						{
 							//them du lieu moi vao bang khach hang
-							$sql="insert into news values('$id','$title','$into','$content','$meta_desc','$meta_key','$image_link','$created','$feature','$count_view')";
+							$sql="insert into news values('$id','$title','$intro','$content','$meta_desc','$meta_key','$image_link','$created','$feature','$count_view')";
 							mysql_query($sql);
 							echo "<script>alert('Add is successful!')</script>";
 							echo '<meta http-equiv="refresh" content="0;URL=index.php"/>';
@@ -194,7 +196,7 @@ if($taptin['type']=="image/jpg" || $taptin['type']=="image/jpeg" || $taptin['typ
       <tr>
         <th scope="row">created:</th>
         <td><label for="created"></label>
-          <input type="text" name="created" id="created" />
+          <input type="date" name="created" id="created" />
           <div id="blcreated"></div></td>
       </tr>
       <tr>
