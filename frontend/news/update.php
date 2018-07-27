@@ -58,7 +58,7 @@
     <tr>
       <td>created</td>
       <td><label for="created"></label>
-        <input type="date" name="created" id="created"  value="<?php echo $row['created'];?>"/></td>
+        <input type="date" name="created" id="created"  value="<?php echo $row['created'];?>" onchange="myFunction()"/></td>
         </td>
     </tr>
     <tr>
@@ -131,6 +131,29 @@ if(isset($_POST['btn_up']))
 			}
 		}
 ?>
+<script>
+function myFunction() {
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+1;
+var yyyy = today.getFullYear();
+
+if(dd<10) {
+dd = '0'+dd
+} 
+
+if(mm<10) {
+mm = '0'+mm
+} 
+
+today = yyyy + '-' + mm + '-' + dd;
+var x = document.getElementById("created").value; 
+
+if(x < today){
+alert("ngày nhập phải lớn hơn hoặc bằng ngày hiện tại")
+}
+}
+</script>
 </body>
 
 </html>
